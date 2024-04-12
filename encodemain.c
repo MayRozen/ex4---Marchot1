@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
             return -1;
        }
        
-       while(num != NULL){
+       while(text != NULL){
             num = fgetc(text); //Get the first number (0-9)
             num = toBinary(num); //Make num to binary number
             num = change(num); //Performs the encryption
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]){
             fwrite(&num, sizeof(int), 1, output_file);
        }
 
-       if(fcolse(text)==0){
+       if(fclose(text)==0){
             printf("The file was closed successfully!\n");
         }
         else{
@@ -57,14 +57,14 @@ int main(int argc, char* argv[]){
             return -1;
        }
 
-        while(num!=NULL){
+        while(binary!=NULL){
             num = fread(&num, sizeof(int), 1, binary);
             num = change(num);
 
             fwrite(&num, sizeof(int), 1, output_file);
         }
 
-        if(fcolse(binary)==0){
+        if(fclose(binary)==0){
             printf("The file was closed successfully!\n");
         }
         else{
